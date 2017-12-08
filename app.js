@@ -1,0 +1,73 @@
+  map.on('load', 'tony-musicals', function (e) {
+
+    buildLocationList(e);
+
+    var popup = new mapboxgl.Popup({
+        closeButton: true,
+        closeOnClick: true
+    });
+
+    map.on('click', 'tony-musicals', function (e) {
+        map.flyTo({
+          center: e.features[0].geometry.coordinates,
+          zoom: 11
+        });
+
+    });
+
+    map.on('mouseenter', 'tony-musicals', function(e) {
+        const data = e.features[0].properties;
+        map.getCanvas().style.cursor = 'pointer';
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML("<h2>" + data.musical + "</h2>" + "<p> Tony " + " " + data.award + " " + data.winYear + "</p>" + "<p>" + data.description + "</p>" + "<p>" + data.setting + "</p>" + "<p>")
+            .addTo(map);
+
+    });
+
+     map.on('mouseleave', 'tony-musicals', function () {
+        map.getCanvas().style.cursor = '';
+    });
+
+     map.addControl(new mapboxgl.NavigationControl());
+
+  });
+
+  function flyToShow(currentFeature) {
+    map.flyTo({
+        center: currentFeature.geometry.coordinates,
+        zoom: 14
+      });
+  }
+
+
+  function buildLocationList(data) {
+    for (i = 0; i < data.features.length; i++) {
+      var currentFeature = data.features[i];
+      var prop = currentFeature.properties;
+
+      var listings = document.getElementById('listings');
+      var listing = listings.appendChild(document.createElement('div'));
+      listing.className = 'item';
+      listing.id = "listing-" + i;
+
+      var link = listing.appendChild(document.createElement('a'));
+      link.href = '#';
+      link.className = 'title';
+      link.dataPosition = i;
+      link.innerHTML = prop.musical;
+
+      var winYear = listing.appendChild(document.createElement('p'));
+      winYear.className = 'award';
+      winYear.innerHTML = "Tony " + prop.award + ", " + prop.winYear;  
+
+      var description = listing.appendChild(document.createElement('p'));
+      description.innerHTML = prop.description;
+
+      link.addEventListener('click', function(e){
+        var clickedListing = data.features[this.dataPosition];
+
+        flyToShow(clickedListing);
+
+      });
+    }
+  }
