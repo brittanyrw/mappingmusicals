@@ -1,3 +1,11 @@
+mapboxgl.accessToken = 'pk.eyJ1IjoiYnJpdHRhbnlydyIsImEiOiJjajhvamE3dDYwM3UyMzNubmdoMnV4cjV3In0.sdA93qNfEKLfUEKrpz86Hg';
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/brittanyrw/cj9yzhuym82yq2skpp4v7n6kv',
+  center: [-73.972080, 40.752226],
+  zoom: 12.5
+});
+
   map.on('load', 'tony-musicals', function (e) {
 
     buildLocationList(e);
