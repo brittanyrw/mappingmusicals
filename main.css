@@ -16,27 +16,19 @@ body {
 }
 
 .sidebar {
-  width: 30%;
+  width: 100%;
   padding: 10px;
-  height: 550px;
-  top: 170px;
-  left: 0;
   overflow: hidden;
-  position:absolute;
+  margin: 0 0 20px 0;
 }
 
 .map {
   border-left: 1px solid #fff;
-  position: absolute;
   height: 550px;
-  width: 67%;
+  width: 90%;
   margin: 0 auto;
   outline: 10px solid white;
   border: 1px solid dimgray;
-  left: 32%;
-  vertical-align: top;
-  top: 170px;
-  bottom:0;
 }
 
 h1 {
@@ -57,19 +49,27 @@ header {
 .listings {
   height: 100%;
   overflow: auto;
-  padding-bottom: 60px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: auto;
 }
+
 
 .award {
   font-style: italic;
 }
 
 .listings .item {
-  display: block;
+  display: inline-block;
   text-decoration: none;
   background: #eee;
   margin-bottom:10px;
   padding: 20px;
+  margin-right: 10px;
+  white-space: pre-line;
+  vertical-align: top;
+  height: 200px;
 }
 
 .listings .item .title {
@@ -102,5 +102,35 @@ header {
   border-radius: 0;
 }
 
-
+@media only screen and (min-width: 769px) {
+  .sidebar {
+    width: 30%;
+    padding: 10px;
+    height: 550px;
+    top: 170px;
+    left: 0;
+    overflow: hidden;
+    position:absolute;
+      }
+  #map {
+  position: absolute;
+  width: 67%;
+  left: 32%;
+  vertical-align: top;
+  top: 170px;
+  bottom:0;
+  }
+  #listings {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: normal;
+  }
+   .listings .item {
+    display: block;
+    text-decoration: none;
+    background: #eee;
+    margin-bottom:10px;
+    padding: 20px;
+  } 
+}
 
