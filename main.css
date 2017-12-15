@@ -82,8 +82,25 @@ header {
   margin: 0 0 10px 0;
 }
 
+.github-link {
+  color: #fff;
+  font-weight: bold;
+}
+
+.github-link:hover {
+  color: #FFAD0D;
+}
+
+.mapboxgl-popup {
+  width: 200px;
+}
+
 .mapboxgl-popup-close-button {
   font-size: 20px;
+}
+
+.mapboxgl-popup-content {
+  border-left: 10px solid #C1272D;
 }
 
 ::-webkit-scrollbar {
@@ -132,5 +149,8 @@ header {
     margin-bottom:10px;
     padding: 20px;
   } 
+  .mapboxgl-popup {
+    width: auto;
+  }
 }
 
