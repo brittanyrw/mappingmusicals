@@ -47,6 +47,23 @@ var map = new mapboxgl.Map({
       });
   }
 
+  function filter() {
+    var input = document.getElementsByClassName('item');
+    var filter = document.getElementById('search').value.toLowerCase();
+    for (i = 0; i < input.length; i++) {
+        var currentItem = input[i];
+      console.log(currentItem);
+        var currentListingItem = input[i].children[0]
+        console.log(currentListingItem);
+        if (currentListingItem.innerHTML.toLowerCase().indexOf(filter) > -1) {
+            currentItem.style.display = "";
+        } else {
+            currentItem.style.display = "none";
+        }
+      }
+    }
+  
+  document.getElementById('search').addEventListener('keyup', filter);
 
   function buildLocationList(data) {
     for (i = 0; i < data.features.length; i++) {
