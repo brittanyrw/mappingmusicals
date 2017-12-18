@@ -60,6 +60,20 @@ header {
   font-style: italic;
 }
 
+.search {
+  width: 100%;
+  height: 40px;
+  border: 1px solid white;
+  padding: 5px 10px;
+  margin: 0 0 10px 0;
+  background: white;
+}
+
+.search:focus {
+  border: 3px solid #78C1B8;
+  outline: none;
+}
+
 .listings .item {
   display: inline-block;
   text-decoration: none;
