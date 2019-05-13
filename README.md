@@ -1,5 +1,5 @@
 # Mapping Musicals
-[Demo Mapping Musicals Here](http://www.brittanywalker.io/mappingmusicals/)
+[Demo Mapping Musicals Here](https://brittanyrw.github.io/mappingmusicals/)
 
 ![Mapping Musicals main animated GIF](readme/mapping-musicals.gif?raw=true "Mapping Musicals main animated GIF")
 
